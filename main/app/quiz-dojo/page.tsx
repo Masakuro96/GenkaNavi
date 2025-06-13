@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { TargetIcon } from '../../components/icons/TargetIcon';
 import { ChevronRightIcon } from '../../components/icons/ChevronRightIcon';
+import { RepeatIcon } from '../../components/icons/RepeatIcon';
 
 const QuizDojoPage: React.FC = () => {
   const challengeOptions = [
@@ -18,6 +19,7 @@ const QuizDojoPage: React.FC = () => {
         <p className="text-xl text-gray-600 mt-3">己の限界に挑み、知識を磨き上げよ！</p>
       </header>
 
+      {/* 通常コース */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
         {challengeOptions.map((option) => (
           <Link
@@ -38,10 +40,33 @@ const QuizDojoPage: React.FC = () => {
           </Link>
         ))}
       </div>
-       <div className="text-center mt-12">
-        <p className="text-gray-500">
-          各コースでは、全範囲からランダムに問題が出題されます。
-        </p>
+       
+      {/* 特訓モード */}
+      <div className="mt-16 text-center">
+        <h2 className="text-2xl font-bold text-gray-800">特訓モード</h2>
+        <p className="text-gray-600 mt-2 mb-6">特定の範囲を集中して学習します。</p>
+        <div className="flex flex-wrap justify-center gap-6">
+          
+          <Link
+            to={`/quiz-dojo/session?mode=苦手克服`}
+            className="group p-6 md:p-8 rounded-xl shadow-2xl text-white bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 ease-in-out flex flex-col justify-between items-center w-full md:w-auto md:max-w-xs"
+          >
+            <div>
+              <RepeatIcon className="w-12 h-12 mx-auto mb-3" />
+              <h3 className="text-2xl font-bold mb-2">苦手克服ドリル</h3>
+              <p className="text-sm opacity-90">間違えた問題だけを総復習して弱点をなくそう！</p>
+            </div>
+             <div className="mt-4">
+                <span className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md bg-white/20 hover:bg-white/30 transition-colors">
+                    特訓開始
+                    <ChevronRightIcon className="w-5 h-5 ml-2" />
+                </span>
+            </div>
+          </Link>
+          
+          {/* ここに将来的に「章・カテゴリ別特訓」のリンクを追加できます */}
+
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 {
-  "name": "6/11-最新版",
+  "name": "cost-accounting-learner",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,16 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react-dom": "^19.1.0",
-    "react": "^19.1.0",
-    "react-router-dom": "^7.6.2",
-    "react-markdown": "^9.0.0",
-    "@heroicons/react/24/outline": "2.1.3",
     "@heroicons/react": "^2.2.0",
-    "firebase/app": "^11.9.1",
-    "firebase/auth": "^11.9.1",
-    "firebase/firestore": "^11.9.1",
-    "firebase": "^11.9.1"
+    "firebase": "^11.9.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "^9.0.0",
+    "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

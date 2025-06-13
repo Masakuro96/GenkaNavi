@@ -7,8 +7,10 @@ import { CheckCircleIcon } from './icons/CheckCircleIcon';
 import { XCircleIcon } from './icons/XCircleIcon';
 
 interface QuizFillInProps extends Omit<QuizFillInItem, 'standardId'> {
+  onAnswered?: (isCorrect: boolean) => void; //
   // No onAnswered needed for now, as fill-in is not in QuizDojo yet
 }
+
 
 export const QuizFillIn: React.FC<QuizFillInProps> = ({
   id,
@@ -16,6 +18,7 @@ export const QuizFillIn: React.FC<QuizFillInProps> = ({
   options,
   answerIndex,
   explanation,
+  onAnswered, // ★この行を追加
 }) => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState<boolean>(false);
@@ -35,6 +38,12 @@ export const QuizFillIn: React.FC<QuizFillInProps> = ({
 
     // Record the result in the context
     setQuizResult(id, isCorrect);
+
+    // ★ここから追加
+    if (onAnswered) { 
+      onAnswered(isCorrect);
+    }
+    // ★ここまで追加
   };
 
   const questionParts = question.split(/(\[ ?\])/g);
